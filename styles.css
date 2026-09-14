@@ -1,0 +1,74 @@
+:root {
+  color-scheme: light;
+  --ink: #17212b;
+  --muted: #59636d;
+  --link: #175a91;
+  --line: #dce1e6;
+  --paper: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-size: 16px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
+body { margin: 0; background: var(--paper); color: var(--ink); line-height: 1.65; }
+a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: .2em; }
+a:hover { color: #073859; text-decoration-thickness: 2px; }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 5px; border-radius: 1px; }
+.skip-link { position: absolute; left: 1rem; top: -6rem; z-index: 5; padding: .4rem .7rem; background: white; }
+.skip-link:focus { top: 1rem; }
+.layout { max-width: 1160px; margin: 0 auto; padding: 4.5rem 2.5rem 2rem; display: grid; grid-template-columns: 245px minmax(0, 1fr); gap: 5rem; }
+.profile { align-self: start; position: sticky; top: 3rem; }
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; color: #101b25; font-weight: 400; }
+h1 { font-size: 2.125rem; letter-spacing: -.025em; line-height: 1.18; margin: 0 0 .3rem; }
+.nickname { margin: 0 0 1.1rem; font-size: 1rem; color: var(--muted); }
+.affiliation { margin: 0 0 1.3rem; font-size: 1rem; }
+.bio { margin: 0 0 1.4rem; font-size: 1rem; line-height: 1.65; }
+.profile-links { display: flex; flex-wrap: wrap; gap: .4rem 1.15rem; margin: 0; }
+.profile-links a { font-size: .9375rem; }
+.section-nav { margin-top: 2.2rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
+.section-nav ul { padding: 0; margin: 0; list-style: none; }
+.section-nav li { margin: .35rem 0; }
+.section-nav a { display: inline-block; padding: .2rem 0; font-size: .9375rem; text-decoration: none; color: var(--muted); }
+.section-nav a:hover { color: var(--link); text-decoration: underline; }
+main { min-width: 0; }
+.project-section { margin: 0 0 3.25rem; }
+.section-heading { margin: 0 0 1.5rem; padding-bottom: .6rem; border-bottom: 1px solid var(--line); font-size: 1.75rem; line-height: 1.25; letter-spacing: -.01em; }
+.project { margin: 0 0 1.8rem; }
+.project:last-child { margin-bottom: 0; }
+.project h3 { margin: 0 0 .4rem; font-size: 1.3125rem; line-height: 1.4; }
+.project p { margin: 0 0 .55rem; font-size: 1rem; line-height: 1.65; }
+.project .stack { color: var(--muted); font-size: .875rem; line-height: 1.65; }
+.project-links { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 1.2rem; }
+.project-links a { font-size: .9375rem; }
+.research-index { margin-top: 1.8rem; font-size: .9375rem; }
+.access-note { margin: -0.35rem 0 1.6rem; font-size: .9375rem; color: var(--muted); }
+.private-note { font-size: .875rem; color: var(--muted); }
+.site-footer { border-top: 1px solid var(--line); padding-top: 1rem; color: var(--muted); font-size: .8125rem; }
+.site-footer p { margin: 0; }
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 205px minmax(0, 1fr); gap: 2.5rem; padding: 3rem 1.75rem 2rem; }
+  h1 { font-size: 1.875rem; }
+}
+@media (max-width: 680px) {
+  .layout { display: block; padding: 2.25rem 1.25rem 1.5rem; }
+  .profile { position: static; margin-bottom: 2.5rem; }
+  h1 { font-size: 2.125rem; }
+  .nickname { margin-bottom: .65rem; }
+  .affiliation { margin-bottom: .9rem; }
+  .bio { max-width: 34rem; margin-bottom: 1rem; }
+  .section-nav { margin-top: 1.4rem; padding-top: .6rem; }
+  .section-nav ul { display: flex; flex-wrap: wrap; gap: .15rem 1.2rem; }
+  .section-nav a { padding: .4rem 0; }
+  .project-section { margin-bottom: 2.6rem; }
+  .section-heading { font-size: 1.625rem; }
+  .project { margin-bottom: 1.65rem; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media print {
+  .layout { display: block; padding: 0; max-width: none; }
+  .profile { position: static; margin-bottom: 1.5rem; }
+  .section-nav, .skip-link { display: none; }
+  .project { break-inside: avoid; }
+  .project-section { margin-bottom: 1.5rem; }
+  body { font-size: 11pt; }
+}

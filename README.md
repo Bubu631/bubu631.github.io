@@ -2,7 +2,7 @@
 
 Personal research and project portfolio for Shengwei (Jacob) Zhang.
 
-**Website:** https://bubu631.github.io/
+**Website:** https://shengweizhang.com/
 
 The website presents four research projects first, followed by applied machine learning and software projects. Each entry links to its repository, and the research entries also link to their manuscripts. A downloadable portfolio PDF is included.
 

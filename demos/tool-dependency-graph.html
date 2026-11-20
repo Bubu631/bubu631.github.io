@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tool dependencies</title>
+<style>
+  :root {
+    color-scheme: light;
+    --background: #f5f7f4;
+    --paper: #fff;
+    --ink: #1a2924;
+    --muted: #465d54;
+    --accent: #145842;
+    --line: #b5c8be;
+    font: 15px/1.45 system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; color: var(--ink); background: var(--background); }
+  main { max-width: 1400px; margin: auto; padding: clamp(18px, 4vw, 52px); }
+  h1 { margin: 0; font-size: clamp(28px, 5vw, 42px); letter-spacing: -.035em; }
+  p { margin: .4em 0 0; color: var(--muted); }
+  .controls { display: grid; grid-template-columns: minmax(0, 2fr) minmax(8em, 1fr); gap: 12px; margin: 26px 0 12px; }
+  label { display: grid; align-content: start; gap: 4px; min-width: 0; font-weight: 650; }
+  input, select, button {
+    font: inherit; border: 1px solid var(--line); color: var(--ink);
+    border-radius: 6px; background: var(--paper); padding: .5em .65em; min-width: 0;
+  }
+  button { cursor: pointer; }
+  :focus-visible { outline: 3px solid #147656; outline-offset: 2px; }
+  select[size] { width: 100%; font: .83rem/1.3 ui-monospace, monospace; }
+  .matches { font-size: .85rem; margin-top: 6px; min-height: 1.3em; }
+  .graph {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .88fr) minmax(0, 1fr);
+    gap: clamp(12px, 3vw, 42px); position: relative; align-items: center;
+    margin-top: 25px; padding: 20px 12px; border-top: 1px solid var(--line);
+  }
+  canvas { position: absolute; inset: 0; pointer-events: none; }
+  .lane { position: relative; min-width: 0; display: grid; gap: 8px; }
+  .lane h2 { margin: 0; font-size: .96rem; }
+  .lane p { font-size: .85rem; }
+  .neighbors { display: grid; gap: 7px; }
+  .node {
+    width: 100%; text-align: left; font: 700 .79rem/1.35 ui-monospace, monospace;
+    overflow-wrap: anywhere; background: var(--paper);
+    padding: 9px; border: 1px solid var(--line); border-radius: 6px;
+  }
+  .neighbors .node:hover { border-color: var(--accent); background: #edf7f0; }
+  .focus { color: white; background: var(--accent); border-color: var(--accent); }
+  .labels { display: block; margin-top: 4px; font-weight: 400; color: var(--muted); }
+  .focus .labels { color: #deece6; }
+  .pages { display: flex; align-items: center; gap: 6px; font-size: .81rem; }
+  .pages button { padding: .15em .5em; }
+  .pages button:disabled { opacity: .45; cursor: default; }
+  [hidden] { display: none !important; }
+  @media (max-width: 600px) {
+    .controls, .graph { grid-template-columns: 1fr; }
+    .graph { padding: 16px 0; gap: 20px; }
+    .node { padding: 7px; }
+    canvas { display: none; }
+  }
+</style>
+<main>
+  <h1>Tool dependencies</h1>
+  <p id="stats"></p>
+  <p>Choose a tool to see what can supply its inputs and which tools can use its outputs.</p>
+  <div class="controls">
+    <label>Search tool slugs <input id="search" type="search" placeholder="e.g. issue comment" autocomplete="off"></label>
+    <label>Service <select id="service"><option value="">All services</option></select></label>
+  </div>
+  <label>Tools <select id="tools" size="5"></select></label>
+  <p class="matches" id="matches" aria-live="polite"></p>
+  <section class="graph" aria-label="Dependency graph">
+    <canvas aria-hidden="true"></canvas>
+    <div class="lane">
+      <h2 id="in-title">Producers</h2>
+      <div id="in-list" class="neighbors"></div>
+      <div class="pages" id="in-pages"></div>
+    </div>
+    <div class="lane">
+      <h2>Selected tool</h2>
+      <div class="node focus" id="focus" aria-live="polite"></div>
+    </div>
+    <div class="lane">
+      <h2 id="out-title">Consumers</h2>
+      <div id="out-list" class="neighbors"></div>
+      <div class="pages" id="out-pages"></div>
+    </div>
+  </section>
+</main>
+<script type="application/json" id="graph-data">{"nodes":[{"id":"SHOP_CREATE_ORDER","service":"tools"},{"id":"SHOP_GET_CUSTOMER","service":"tools"},{"id":"SHOP_GET_ORDER","service":"tools"},{"id":"SHOP_LIST_CUSTOMERS","service":"tools"},{"id":"SHOP_LIST_ORDERS","service":"tools"},{"id":"SHOP_LIST_ORDER_COMMENTS","service":"tools"},{"id":"SHOP_LIST_PRODUCT_COMMENTS","service":"tools"},{"id":"SHOP_READ_ORDER_COMMENT","service":"tools"},{"id":"SHOP_TAG_ORDER","service":"tools"}],"edges":[{"from":"SHOP_LIST_CUSTOMERS","to":"SHOP_CREATE_ORDER","label":"customer_id"},{"from":"SHOP_LIST_CUSTOMERS","to":"SHOP_GET_CUSTOMER","label":"customer_id"},{"from":"SHOP_CREATE_ORDER","to":"SHOP_GET_ORDER","label":"order_id"},{"from":"SHOP_LIST_ORDERS","to":"SHOP_GET_ORDER","label":"order_id"},{"from":"SHOP_CREATE_ORDER","to":"SHOP_LIST_ORDER_COMMENTS","label":"order_id"},{"from":"SHOP_LIST_ORDERS","to":"SHOP_LIST_ORDER_COMMENTS","label":"order_id"},{"from":"SHOP_LIST_ORDER_COMMENTS","to":"SHOP_READ_ORDER_COMMENT","label":"comment_id"}],"focus":"SHOP_GET_ORDER"}</script>
+<script>
+  "use strict";
+  const { nodes, edges, focus } = JSON.parse(document.querySelector("#graph-data").textContent);
+  const get = (id) => document.getElementById(id);
+  const select = get("tools");
+  const search = get("search");
+  const service = get("service");
+  const selected = get("focus");
+  const canvas = document.querySelector("canvas");
+  const graph = document.querySelector(".graph");
+  const byId = new Map(nodes.map((node) => [node.id, node]));
+  const incoming = new Map();
+  const outgoing = new Map();
+  const page = { in: 0, out: 0 };
+  const pageSize = 8;
+
+  function add(index, id, neighbor, label) {
+    if (!index.has(id)) index.set(id, new Map());
+    const group = index.get(id);
+    if (!group.has(neighbor)) group.set(neighbor, new Set());
+    group.get(neighbor).add(label);
+  }
+
+  for (const { from, to, label } of edges) {
+    add(incoming, to, from, label);
+    add(outgoing, from, to, label);
+  }
+  for (const value of [...new Set(nodes.map((node) => node.service))].sort()) {
+    service.add(new Option(value, value));
+  }
+  get("stats").textContent = nodes.length.toLocaleString() + " tools · " +
+    edges.length.toLocaleString() + " dependencies";
+  let active = focus || edges[0]?.to || nodes[0]?.id;
+
+  function filterTools() {
+    const tokens = search.value.toLowerCase().trim().split(/[\s_]+/).filter(Boolean);
+    const result = nodes.filter(({ id, service: group }) =>
+      (!service.value || group === service.value) &&
+      tokens.every((word) => id.toLowerCase().includes(word)));
+    select.replaceChildren(...result.map(({ id }) => new Option(id, id)));
+    select.value = active ?? "";
+    get("matches").textContent = result.length.toLocaleString() +
+      (result.length === 1 ? " matching tool" : " matching tools");
+  }
+
+  function show(id, viaNeighbor = false) {
+    active = id;
+    if (viaNeighbor && ![...select.options].some((option) => option.value === id)) {
+      search.value = "";
+      service.value = "";
+      filterTools();
+    }
+    select.value = id;
+    page.in = 0;
+    page.out = 0;
+    render();
+    if (viaNeighbor) {
+      selected.tabIndex = -1;
+      selected.focus({ preventScroll: true });
+    }
+  }
+
+  function lane(side, index, name) {
+    const list = get(side + "-list");
+    const controls = get(side + "-pages");
+    const neighbors = [...(index.get(active) ?? [])].sort(([a, aLabels], [b, bLabels]) =>
+      // Put resource-specific fields above ubiquitous scope fields.
+      priority(bLabels) - priority(aLabels) || a.localeCompare(b));
+    get(side + "-title").textContent = name + " (" + neighbors.length + ")";
+    list.replaceChildren();
+    controls.replaceChildren();
+    if (!neighbors.length) {
+      const empty = document.createElement("p");
+      empty.textContent = "No inferred connections";
+      list.append(empty);
+    }
+    for (const [slug, labels] of neighbors.slice(page[side] * pageSize, (page[side] + 1) * pageSize)) {
+      const button = document.createElement("button");
+      button.className = "node";
+      button.textContent = slug;
+      const fields = document.createElement("span");
+      fields.className = "labels";
+      fields.textContent = [...labels].sort().join(" · ");
+      button.append(fields);
+      button.addEventListener("click", () => show(slug, true));
+      list.append(button);
+    }
+    const pages = Math.ceil(neighbors.length / pageSize);
+    if (pages > 1) {
+      const count = document.createElement("span");
+      count.textContent = (page[side] + 1) + " / " + pages;
+      for (const [text, delta, label] of [["←", -1, "Previous"], ["→", 1, "Next"]]) {
+        const button = document.createElement("button");
+        button.textContent = text;
+        button.setAttribute("aria-label", label + " " + name.toLowerCase());
+        button.disabled = page[side] + delta < 0 || page[side] + delta >= pages;
+        button.addEventListener("click", () => {
+          page[side] += delta;
+          render();
+          (get(side + "-pages").querySelector('button[aria-label^="' + label + '"]:enabled') ??
+            get(side + "-pages").querySelector("button:enabled"))?.focus();
+        });
+        controls.append(button);
+        if (delta === -1) controls.append(count);
+      }
+    }
+  }
+
+  function priority(labels) {
+    return [...labels].some((label) => !["owner", "repo", "org", "username"].includes(label)) ? 1 : 0;
+  }
+
+  function draw() {
+    const bounds = graph.getBoundingClientRect();
+    const scale = window.devicePixelRatio || 1;
+    canvas.width = Math.ceil(bounds.width * scale);
+    canvas.height = Math.ceil(bounds.height * scale);
+    canvas.style.width = bounds.width + "px";
+    canvas.style.height = bounds.height + "px";
+    const ctx = canvas.getContext("2d");
+    ctx.scale(scale, scale);
+    ctx.strokeStyle = "#5c8a77";
+    ctx.fillStyle = "#5c8a77";
+    const center = selected.getBoundingClientRect();
+
+    function arrow(a, b) {
+      const x1 = a.right - bounds.left;
+      const y1 = a.top - bounds.top + a.height / 2;
+      const x2 = b.left - bounds.left;
+      const y2 = b.top - bounds.top + b.height / 2;
+      const middle = (x1 + x2) / 2;
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.bezierCurveTo(middle, y1, middle, y2, x2 - 2, y2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(x2 - 1, y2);
+      ctx.lineTo(x2 - 6, y2 - 3);
+      ctx.lineTo(x2 - 6, y2 + 3);
+      ctx.fill();
+    }
+    for (const item of get("in-list").querySelectorAll(".node")) arrow(item.getBoundingClientRect(), center);
+    for (const item of get("out-list").querySelectorAll(".node")) arrow(center, item.getBoundingClientRect());
+  }
+
+  function render() {
+    selected.textContent = active ?? "No tools";
+    if (active) {
+      const meta = document.createElement("span");
+      meta.className = "labels";
+      meta.textContent = byId.get(active).service;
+      selected.append(meta);
+    }
+    lane("in", incoming, "Producers");
+    lane("out", outgoing, "Consumers");
+    draw();
+  }
+
+  search.addEventListener("input", filterTools);
+  service.addEventListener("change", filterTools);
+  select.addEventListener("change", () => show(select.value));
+  window.addEventListener("resize", draw);
+  filterTools();
+  render();
+</script>
+</html>

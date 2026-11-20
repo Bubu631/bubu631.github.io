@@ -4,79 +4,381 @@
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <meta name="color-scheme" content="light">
- <meta name="description" content="Shengwei (Jacob) Zhang's research and project portfolio: reliable AI evaluation, statistical decision-making, applied machine learning, and software development.">
- <meta property="og:title" content="Shengwei Zhang | Research and Projects">
- <meta property="og:description" content="Research manuscripts, reproducible experiments, and applied machine learning and software projects.">
+ <meta name="description" content="Shengwei (Jacob) Zhang builds LLM-backed services, agent tooling, and data pipelines with traceable outputs. Projects, source code, demos, and research manuscripts.">
+ <meta property="og:title" content="Shengwei (Jacob) Zhang | Applied AI &amp; Backend Engineering">
+ <meta property="og:description" content="LLM-backed services, agent tooling, data pipelines, and ML evaluation research, with source code and demos.">
  <meta property="og:type" content="website">
  <meta property="og:url" content="https://shengweizhang.com/">
  <link rel="canonical" href="https://shengweizhang.com/">
- <title>Shengwei Zhang | Research and Projects</title>
+ <title>Shengwei (Jacob) Zhang | Applied AI &amp; Backend Engineering</title>
+ <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="preload" href="/assets/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-<a class="skip-link" href="#research">Skip to research</a>
-<div class="layout">
- <header class="profile">
-  <h1>Shengwei Zhang</h1>
-  <p class="nickname">Jacob</p>
-  <p class="affiliation">University of Pennsylvania</p>
-  <p class="profile-links"><a href="https://github.com/Bubu631" target="_blank" rel="noopener noreferrer">GitHub</a><a href="/Shengwei_Zhang_GitHub_Portfolio.pdf" download>Portfolio PDF</a></p>
-  <nav class="section-nav" aria-label="Page sections"><ul><li><a href="#research">Research</a></li><li><a href="#applied">Applied machine learning</a></li><li><a href="#software">Software projects</a></li></ul></nav>
- </header>
- <main>
-<section class="project-section" id="research" aria-labelledby="research-heading"><h2 class="section-heading" id="research-heading">Research</h2><article class="project" id="base-model-upgrade-non-regression">
- <h3>Certifying Model Upgrades with Slice-Wise Non-Regression and Incumbent Fallback</h3>
- <p>Studies how to certify model upgrades without degrading important data slices. Uses paired non-inferiority tests and retains the incumbent model when evidence is insufficient. Includes controlled simulations, public digits experiments, saved checkpoints, and validation tests.</p>
- <p class="stack">Python, NumPy, SciPy, scikit-learn | Statistical testing and model release evaluation</p>
- <div class="project-links"><a href="https://github.com/Bubu631/base-model-upgrade-non-regression/blob/main/papers/base_upgrade/main.pdf" target="_blank" rel="noopener noreferrer" aria-label="Read the manuscript for Certifying Model Upgrades with Slice-Wise Non-Regression and Incumbent Fallback">Manuscript</a><a href="https://github.com/Bubu631/base-model-upgrade-non-regression" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository for Certifying Model Upgrades with Slice-Wise Non-Regression and Incumbent Fallback">GitHub repository</a></div>
-</article><article class="project" id="edit-localization-selection-bias">
- <h3>When Edit Localization Amplifies Relative Selection Bias: Gradient Geometry, Target Mismatch, and Importance Weighting</h3>
- <p>Investigates how learning from selectively observed human corrections changes gradient bias and the training target. Combines mathematical analysis, importance weighting, Monte Carlo experiments, and fixed-checkpoint diagnostics using public translation post-edits and pretrained models.</p>
- <p class="stack">Python, PyTorch, Hugging Face Transformers, NumPy, LaTeX, Make | Gradient analysis</p>
- <div class="project-links"><a href="https://github.com/Bubu631/edit-localization-selection-bias/blob/main/papers/edit_localization/main.pdf" target="_blank" rel="noopener noreferrer" aria-label="Read the manuscript for When Edit Localization Amplifies Relative Selection Bias: Gradient Geometry, Target Mismatch, and Importance Weighting">Manuscript</a><a href="https://github.com/Bubu631/edit-localization-selection-bias" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository for When Edit Localization Amplifies Relative Selection Bias: Gradient Geometry, Target Mismatch, and Importance Weighting">GitHub repository</a></div>
-</article><article class="project" id="nhs-wellbeing-measurement">
- <h3>Which Uncertainty Is Worth Reducing? Budgeted Measurement for Wellbeing Prioritisation</h3>
- <p>Studies which additional measurements are worth acquiring before prioritizing units for wellbeing review. Evaluates budget allocation across measurement channels using controlled simulations, public BRFSS replay, and an NHS staff survey illustration.</p>
- <p class="stack">Python, pandas, SciPy, Matplotlib, openpyxl | JavaScript and Node.js for workbook checks</p>
- <div class="project-links"><a href="https://github.com/Bubu631/nhs-wellbeing-measurement/blob/main/paper/full.pdf" target="_blank" rel="noopener noreferrer" aria-label="Read the manuscript for Which Uncertainty Is Worth Reducing? Budgeted Measurement for Wellbeing Prioritisation">Manuscript</a><a href="https://github.com/Bubu631/nhs-wellbeing-measurement" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository for Which Uncertainty Is Worth Reducing? Budgeted Measurement for Wellbeing Prioritisation">GitHub repository</a></div>
-</article><article class="project" id="agent-audit-complexity">
- <h3>The Audit Complexity of Group-Relative Policy Updates</h3>
- <p>Studies how many reference labels are needed to estimate a fixed group-relative policy update. Includes query-complexity theory, randomized estimators, controlled simulations, small-policy training, and frozen-model diagnostics on historical software-agent trajectories.</p>
- <p class="stack">Python, NumPy, SciPy, PyTorch | Estimator implementation and independent checks</p>
- <div class="project-links"><a href="https://github.com/Bubu631/agent-audit-complexity/blob/main/paper/main.pdf" target="_blank" rel="noopener noreferrer" aria-label="Read the manuscript for The Audit Complexity of Group-Relative Policy Updates">Manuscript</a><a href="https://github.com/Bubu631/agent-audit-complexity" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository for The Audit Complexity of Group-Relative Policy Updates">GitHub repository</a></div>
-</article><p class="research-index"><a href="https://github.com/Bubu631/research" target="_blank" rel="noopener noreferrer">Research index</a> &mdash; all four research repositories and release materials.</p></section><section class="project-section" id="applied" aria-labelledby="applied-heading"><h2 class="section-heading" id="applied-heading">Applied Machine Learning</h2><article class="project" id="Predicting-the-Spark">
- <h3>Predicting the Spark</h3>
- <p>A geospatial study of U.S. wildfire occurrence combining weather, historical fire records, and a vegetation fuel index. Includes data cleaning, raster processing, class imbalance handling, model comparisons, and diagnostic visualizations.</p>
- <p class="stack">Python, scikit-learn, XGBoost, Rasterio, GeoPandas | Notebooks and analysis</p>
- <div class="project-links"><a href="https://github.com/Bubu631/Predicting-the-Spark" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository for Predicting the Spark">GitHub repository</a></div>
-</article><article class="project" id="Deep-Learning-Image-Classification-NLP-Time-Series">
- <h3>Deep Learning in Vision, Language, and Time Series</h3>
- <p>A course project implementing image classification, extractive question answering, and time series forecasting. Compares CNNs and ResNet-50, fine-tunes DistilBERT on SQuAD, and evaluates recurrent models for stock price prediction.</p>
- <p class="stack">Python, PyTorch, Hugging Face Transformers | Training and evaluation notebooks</p>
- <div class="project-links"><a href="https://github.com/Bubu631/Deep-Learning-Image-Classification-NLP-Time-Series" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository for Deep Learning in Vision, Language, and Time Series">GitHub repository</a></div>
-</article><article class="project" id="Machine-Learning-Prediction-for-NYC-Property-Sales-">
- <h3>NYC Property Sales Prediction</h3>
- <p>A regression project using New York City property transactions. Cleans and encodes property features, compares linear regression with random forests, and examines prediction errors and feature importance through visualizations.</p>
- <p class="stack">Python, pandas, scikit-learn, Matplotlib, Seaborn | Data analysis notebook</p>
- <div class="project-links"><a href="https://github.com/Bubu631/Machine-Learning-Prediction-for-NYC-Property-Sales-" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository for NYC Property Sales Prediction">GitHub repository</a></div>
-</article><article class="project" id="Heart-Disease-Classification">
- <h3>Heart Disease Classification</h3>
- <p>A classification study of imbalanced public heart disease data. Compares logistic regression, random forests, and XGBoost with class weighting and recall-focused tuning to examine sensitivity and precision trade-offs.</p>
- <p class="stack">Python, scikit-learn, XGBoost | Educational classification and evaluation study</p>
- <div class="project-links"><a href="https://github.com/Bubu631/Heart-Disease-Classification" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository for Heart Disease Classification">GitHub repository</a></div>
-</article></section><section class="project-section" id="software" aria-labelledby="software-heading"><h2 class="section-heading" id="software-heading">Software Projects</h2><p class="access-note">These repositories are private. Viewing the source requires repository access.</p><article class="project" id="course-notes-site">
- <h3>Course Notes Platform</h3>
- <p>A web application for organizing and editing course materials, with administrator-only AI summaries and GitHub synchronization for Markdown notes. Includes client and server code, course content, and deployment configuration.</p>
- <p class="stack">JavaScript, Node.js, Express, Anthropic SDK</p>
- <div class="project-links"><a href="https://github.com/Bubu631/course-notes-site" target="_blank" rel="noopener noreferrer" aria-label="Repository (private) for Course Notes Platform">Repository (private)</a></div>
-</article><article class="project" id="hf_explorer">
- <h3>Hugging Face Model Explorer</h3>
- <p>A collaborative CIS 5500 course project combining a Hugging Face metadata pipeline with model and dataset search, comparison, lineage exploration, and analytics. Includes normalized data tables, SQL queries, and a web interface.</p>
- <p class="stack">React, Express, PostgreSQL, Python | Fork of the team repository</p>
- <div class="project-links"><a href="https://github.com/Bubu631/hf_explorer" target="_blank" rel="noopener noreferrer" aria-label="Repository (private) for Hugging Face Model Explorer">Repository (private)</a></div>
-</article></section>
-  <footer class="site-footer"><p>Shengwei (Jacob) Zhang &middot; Project information checked September 2026</p></footer>
- </main>
-</div>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+ <div class="wrap">
+  <a class="brand" href="/">Shengwei Zhang</a>
+  <nav class="site-nav" aria-label="Primary">
+   <ul>
+    <li><a href="/#focus">Focus</a></li>
+    <li><a href="/#projects">Projects</a></li>
+    <li><a href="/#research">Research</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/projects/">All projects</a></li>
+    <li><a class="ext" href="https://github.com/Bubu631" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+   </ul>
+  </nav>
+ </div>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-heading">
+ <div class="wrap">
+  <div class="hero-copy">
+   <p class="hero-meta">University of Pennsylvania &middot; MSE, Systems Engineering &middot; Philadelphia</p>
+   <h1 id="hero-heading">Shengwei <em>(Jacob)</em> Zhang</h1>
+   <ul class="roles" aria-label="Roles">
+    <li>Applied AI &amp; Backend Engineering</li>
+    <li>Machine Learning Engineer</li>
+    <li>Member of Technical Staff</li>
+   </ul>
+   <p class="lead">I build LLM-backed services, agent tooling, and data pipelines in which every number traces back to a source record, and I evaluate model changes with statistical tests.</p>
+   <div class="cta">
+    <a class="btn btn-primary" href="#projects">View Projects</a>
+    <a class="btn btn-secondary" href="https://github.com/Bubu631" target="_blank" rel="noopener noreferrer">
+     <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+     GitHub
+    </a>
+   </div>
+   <p class="link-row"><a href="#research">Research papers</a><a href="/Shengwei_Zhang_GitHub_Portfolio.pdf">Portfolio PDF</a><a href="#about">About me</a></p>
+  </div>
+
+  <figure class="hero-photo">
+   <img src="/assets/img/portrait.webp" width="1040" height="1300" fetchpriority="high" alt="Shengwei Zhang standing by a lake under a blue sky, in a long black coat and tinted glasses.">
+  </figure>
+ </div>
+</section>
+
+<section class="section" id="focus" aria-labelledby="focus-heading">
+ <div class="wrap">
+  <div class="section-head">
+   <p class="eyebrow">Technical Focus</p>
+   <h2 id="focus-heading">Four capabilities, each backed by a project</h2>
+   <p>Every stack below links to the project where it is used, with source code.</p>
+  </div>
+
+  <div class="focus-grid">
+   <article class="focus-col">
+    <span class="num">01</span>
+    <h3>Agents &amp; Tooling</h3>
+    <p>Tool-calling loops and tool catalogs, with checks on what the tools actually returned.</p>
+    <div class="evidence">
+     <p class="label">Stack</p>
+     <ul class="chips"><li class="chip">Python</li><li class="chip">MCP client (SSE, stdio)</li><li class="chip">LLM tool calls</li><li class="chip">asyncio</li></ul>
+     <div class="proof">
+      <p class="label">Project evidence</p>
+      <a class="proj" href="/projects/#amap-poi-agent">Amap POI Agent</a>
+      <p>Itinerary planner that keeps only places and routes present in the map tool responses.</p>
+      <a class="code-link ext" href="https://github.com/Bubu631/amap-poi-agent" target="_blank" rel="noopener noreferrer">Code</a>
+     </div>
+    </div>
+    <div class="evidence">
+     <p class="label">Stack</p>
+     <ul class="chips"><li class="chip">TypeScript</li><li class="chip">Node.js</li><li class="chip">JSON Schema traversal</li></ul>
+     <div class="proof">
+      <p class="label">Project evidence</p>
+      <a class="proj" href="#tool-dependency-graph">Tool Dependency Graph</a>
+      <p>Field-level dependency inference across a catalog of tool schemas.</p>
+      <a class="code-link ext" href="https://github.com/Bubu631/tool-dependency-graph" target="_blank" rel="noopener noreferrer">Code</a>
+     </div>
+    </div>
+   </article>
+
+   <article class="focus-col">
+    <span class="num">02</span>
+    <h3>Backend &amp; Data</h3>
+    <p>Typed HTTP APIs and ingestion pipelines with bounded retrieval and source citations.</p>
+    <div class="evidence">
+     <p class="label">Stack</p>
+     <ul class="chips"><li class="chip">Python</li><li class="chip">FastAPI</li><li class="chip">Pydantic</li><li class="chip">httpx (async)</li><li class="chip">Docker</li><li class="chip">pytest</li></ul>
+     <div class="proof">
+      <p class="label">Project evidence</p>
+      <a class="proj" href="#clinical-trials-visualization">Clinical Trials Visualization</a>
+      <p>Query API over ClinicalTrials.gov with paginated retrieval, retries, caching and 137 automated tests.</p>
+      <a class="code-link ext" href="https://github.com/Bubu631/clinical-trials-visualization" target="_blank" rel="noopener noreferrer">Code</a>
+     </div>
+    </div>
+    <div class="evidence">
+     <p class="label">Stack</p>
+     <ul class="chips"><li class="chip">Python standard library</li><li class="chip">SQLite</li><li class="chip">SHA-256 deduplication</li><li class="chip">unittest</li></ul>
+     <div class="proof">
+      <p class="label">Project evidence</p>
+      <a class="proj" href="#clinical-record-abstraction">Clinical Record Abstraction</a>
+      <p>Note ingestion, encounter reconciliation and reporting with line-level source lookup.</p>
+      <a class="code-link ext" href="https://github.com/Bubu631/clinical-record-abstraction" target="_blank" rel="noopener noreferrer">Code</a>
+     </div>
+    </div>
+   </article>
+
+   <article class="focus-col">
+    <span class="num">03</span>
+    <h3>Full-stack Engineering</h3>
+    <p>Browser workflows on top of a deterministic domain engine with an audit trail.</p>
+    <div class="evidence">
+     <p class="label">Stack</p>
+     <ul class="chips"><li class="chip">TypeScript</li><li class="chip">React 19</li><li class="chip">Vite</li><li class="chip">Zod</li><li class="chip">Node test runner</li></ul>
+     <div class="proof">
+      <p class="label">Project evidence</p>
+      <a class="proj" href="#proofwork">Proofwork</a>
+      <p>Review queue, evidence drawer and auditable adjustments, with a hosted prototype.</p>
+      <a class="code-link ext" href="https://github.com/Bubu631/proofwork" target="_blank" rel="noopener noreferrer">Code</a>
+     </div>
+    </div>
+   </article>
+
+   <article class="focus-col">
+    <span class="num">04</span>
+    <h3>ML &amp; Evaluation</h3>
+    <p>Statistical certification of model upgrades and gradient-level analysis of training signals.</p>
+    <div class="evidence">
+     <p class="label">Stack</p>
+     <ul class="chips"><li class="chip">NumPy</li><li class="chip">SciPy</li><li class="chip">scikit-learn</li><li class="chip">Paired non-inferiority tests</li></ul>
+     <div class="proof">
+      <p class="label">Project evidence</p>
+      <a class="proj" href="#base-model-upgrade-non-regression">Model upgrade non-regression</a>
+      <p>Slice-wise certification that keeps the incumbent model when evidence is insufficient.</p>
+      <a class="code-link ext" href="https://github.com/Bubu631/base-model-upgrade-non-regression" target="_blank" rel="noopener noreferrer">Code</a>
+     </div>
+    </div>
+    <div class="evidence">
+     <p class="label">Stack</p>
+     <ul class="chips"><li class="chip">PyTorch</li><li class="chip">Hugging Face Transformers</li><li class="chip">Importance weighting</li><li class="chip">Monte Carlo</li></ul>
+     <div class="proof">
+      <p class="label">Project evidence</p>
+      <a class="proj" href="#edit-localization-selection-bias">Edit localization and selection bias</a>
+      <p>Gradient analysis of learning from selectively observed human corrections.</p>
+      <a class="code-link ext" href="https://github.com/Bubu631/edit-localization-selection-bias" target="_blank" rel="noopener noreferrer">Code</a>
+     </div>
+    </div>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section class="section alt" id="projects" aria-labelledby="projects-heading">
+ <div class="wrap">
+  <div class="section-head">
+   <p class="eyebrow">Selected Projects</p>
+   <h2 id="projects-heading">Four systems and the choices behind them</h2>
+   <p>Each card states the problem, one implementation choice, and where to read the code or try it.</p>
+  </div>
+
+  <div class="features">
+   <article class="feature" id="clinical-trials-visualization">
+    <div class="feature-media"><div class="window"><div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>Clinical Trials Visualization &middot; reference renderer</span></div><img src="/assets/img/clinical-trials-demo.webp" width="1280" height="752" loading="lazy" alt="The service's reference renderer: a line chart of glioblastoma trials by start year from 2020 to 2025, with the 2022 point selected and planner notes above the chart."></div></div>
+    <div class="feature-body">
+     <p class="feature-num">01 <span>FastAPI service</span></p>
+     <h3>Clinical Trials Visualization</h3>
+     <p class="tagline">A FastAPI service that turns a question about ClinicalTrials.gov into chart-ready data.</p>
+     <dl class="card-facts">
+      <div><dt>Problem</dt><dd>A chart of registry counts is hard to trust when you cannot see which studies produced each bar or point.</dd></div>
+      <div><dt>Implementation choice</dt><dd>The planner, either a rules grammar or an OpenAI model held to a strict JSON schema, only emits a typed query plan. Python retrieves, deduplicates and aggregates the studies, and attaches the NCT IDs and source field paths to every observation.</dd></div>
+      <div><dt>Verified by</dt><dd>137 automated tests covering planner behavior, upstream errors, aggregation, evidence and the HTTP contract.</dd></div>
+     </dl>
+     <ul class="chips"><li class="chip">Python</li><li class="chip">FastAPI</li><li class="chip">Pydantic</li><li class="chip">httpx</li><li class="chip">Docker</li><li class="chip">pytest</li></ul>
+     <p class="card-links"><a class="primary ext" href="https://github.com/Bubu631/clinical-trials-visualization" target="_blank" rel="noopener noreferrer">Source code</a><a class="ext" href="https://github.com/Bubu631/clinical-trials-visualization/blob/main/docs/openapi.json" target="_blank" rel="noopener noreferrer">API schema</a><a class="ext" href="https://github.com/Bubu631/clinical-trials-visualization#run-locally" target="_blank" rel="noopener noreferrer">Run locally</a></p>
+    </div>
+   </article>
+
+   <article class="feature" id="proofwork">
+    <div class="feature-media"><div class="window"><div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>Proofwork &middot; review detail</span></div><img src="/assets/img/proofwork-review.webp" width="1280" height="752" loading="lazy" alt="Proofwork review detail for a repeated-scan finding: three evidence links, the affected return lines, and a proposed correction from 88 to 44."></div></div>
+    <div class="feature-body">
+     <p class="feature-num">02 <span>Browser app and engine</span></p>
+     <h3>Proofwork</h3>
+     <p class="tagline">A review workflow that keeps a workpaper adjustment connected to its evidence and history.</p>
+     <dl class="card-facts">
+      <div><dt>Problem</dt><dd>When a reviewer corrects a number in a tax workpaper, the link to the source pages and to earlier sign-offs is easily lost.</dd></div>
+      <div><dt>Implementation choice</dt><dd>A deterministic engine flags a repeated scan by comparing normalized page text, since matching totals alone prove nothing. Each adjustment stores the original value, the actor and the reason, and a material change invalidates sign-offs made on the earlier revision.</dd></div>
+      <div><dt>Verified by</dt><dd>A runnable example on invented records, engine tests, and a hosted prototype of the full browser workflow.</dd></div>
+     </dl>
+     <ul class="chips"><li class="chip">TypeScript</li><li class="chip">React 19</li><li class="chip">Vite</li><li class="chip">Zod</li><li class="chip">Node test runner</li></ul>
+     <p class="card-links"><a class="primary ext" href="https://proofwork-tax-jacob.zsw631123123.chatgpt.site/" target="_blank" rel="noopener noreferrer">Live prototype</a><a class="ext" href="https://www.youtube.com/watch?v=Yv1f2pFyUZU" target="_blank" rel="noopener noreferrer">Walkthrough video</a><a class="ext" href="https://github.com/Bubu631/proofwork" target="_blank" rel="noopener noreferrer">Source code</a></p>
+    </div>
+   </article>
+
+   <article class="feature" id="tool-dependency-graph">
+    <div class="feature-media"><div class="window"><div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>visualization.html &middot; generated from examples/catalog.json</span></div><img src="/assets/img/tool-dependency-graph.webp" width="1280" height="752" loading="lazy" alt="Generated dependency view: two tools produce the order_id that SHOP_LIST_ORDER_COMMENTS requires, and its comment_id feeds SHOP_READ_ORDER_COMMENT."></div></div>
+    <div class="feature-body">
+     <p class="feature-num">03 <span>TypeScript utility</span></p>
+     <h3>Tool Dependency Graph</h3>
+     <p class="tagline">Infers which tool can supply the input that another tool requires.</p>
+     <dl class="card-facts">
+      <div><dt>Problem</dt><dd>With a large tool catalog, an agent has to work out which call returns the identifier that the next call needs.</dd></div>
+      <div><dt>Implementation choice</dt><dd>Links are inferred offline from schema metadata at field level, comparing types, resource names and nesting. An order comment <code>id</code> is therefore never matched to a product comment <code>id</code>.</dd></div>
+      <div><dt>Verified by</dt><dd>Tests on a synthetic shop catalog, which produces 9 tools and 7 dependencies, and on a second toolkit through the CLI.</dd></div>
+     </dl>
+     <ul class="chips"><li class="chip">TypeScript</li><li class="chip">Node.js</li><li class="chip">JSON Schema</li></ul>
+     <p class="card-links"><a class="primary" href="/demos/tool-dependency-graph.html">Open the generated graph</a><a class="ext" href="https://github.com/Bubu631/tool-dependency-graph" target="_blank" rel="noopener noreferrer">Source code</a></p>
+    </div>
+   </article>
+
+   <article class="feature" id="clinical-record-abstraction">
+    <div class="feature-media"><div class="window dark"><div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>backbone.py &middot; synthetic records</span></div><div class="terminal" role="img" aria-label="Command-line output: two counted encounters, 35 to 45 minutes and 25 minutes, each with document and line references, totalling 60 to 70 minutes.">
+     <p class="cmd">python3 backbone.py --db demo.sqlite ask "How many therapy minutes did Alex receive?" --format text</p>
+     <p class="out-head">DEMO-P1 &middot; Alex Example &middot; 2025-03-10 to 2025-03-12</p>
+     <table>
+      <thead><tr><th>Date</th><th>Encounter</th><th>Minutes</th><th class="wide">Basis</th><th>Sources</th></tr></thead>
+      <tbody>
+       <tr><td>Mar 10</td><td>DEMO-E1</td><td class="hl">35&ndash;45</td><td class="wide">09:15&ndash;09:50 or 09:05&ndash;09:50</td><td>DEMO-D1 line 6; DEMO-D2 line 6</td></tr>
+       <tr><td>Mar 12</td><td>DEMO-E2</td><td class="hl">25</td><td class="wide">13:00&ndash;13:25</td><td>DEMO-D3 line 6; DEMO-D4 lines 6&ndash;7</td></tr>
+      </tbody>
+     </table>
+     <p class="total">Total: 2 attended sessions &middot; 60&ndash;70 patient-present minutes</p>
+    </div></div></div>
+    <div class="feature-body">
+     <p class="feature-num">04 <span>Python and SQLite, synthetic records</span></p>
+     <h3>Clinical Record Abstraction</h3>
+     <p class="tagline">Turns plain-text clinical notes into reports in which each figure cites its source lines. Runs on synthetic records.</p>
+     <dl class="card-facts">
+      <div><dt>Problem</dt><dd>Two signed notes about the same visit can disagree, and a single reported total hides that conflict.</dd></div>
+      <div><dt>Implementation choice</dt><dd>When credible records support different durations, the report keeps the range and does not pick one. Ingestion deduplicates documents by SHA-256 content hash into SQLite, and an unsigned draft stays visible as administrative evidence without being counted.</dd></div>
+      <div><dt>Verified by</dt><dd>The bundled example returns 2 sessions and 60&ndash;70 minutes with a document and line reference per encounter; tests cover range preservation, repeat ingestion and exact source lookup.</dd></div>
+     </dl>
+     <ul class="chips"><li class="chip">Python standard library</li><li class="chip">SQLite</li><li class="chip">unittest</li></ul>
+     <p class="card-links"><a class="primary ext" href="https://github.com/Bubu631/clinical-record-abstraction" target="_blank" rel="noopener noreferrer">Source code</a><a class="ext" href="https://github.com/Bubu631/clinical-record-abstraction/tree/main/examples/records" target="_blank" rel="noopener noreferrer">Synthetic records</a></p>
+    </div>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="research" aria-labelledby="research-heading">
+ <div class="wrap">
+  <div class="section-head">
+   <p class="eyebrow">Research</p>
+   <h2 id="research-heading">Model evaluation, selection bias and measurement under a budget</h2>
+   <p>Four manuscripts, each in its own repository with code, configurations and recorded results.</p>
+  </div>
+
+  <div class="papers">
+   <article class="paper" id="base-model-upgrade-non-regression">
+    <div>
+     <h3>Certifying Model Upgrades with Slice-Wise Non-Regression and Incumbent Fallback</h3>
+     <p class="authors">Shengwei Zhang, Tao Wu, Fei Qian</p>
+     <p class="summary">Studies how to certify a model upgrade without degrading important data slices. Uses paired non-inferiority tests and keeps the exact incumbent model when the evidence is insufficient. Includes controlled simulations, public digits experiments, saved checkpoints and validation tests.</p>
+     <ul class="chips"><li class="chip">Python</li><li class="chip">NumPy</li><li class="chip">SciPy</li><li class="chip">scikit-learn</li></ul>
+     <p class="link-row"><a class="ext" href="https://github.com/Bubu631/base-model-upgrade-non-regression/blob/main/papers/base_upgrade/main.pdf" target="_blank" rel="noopener noreferrer" aria-label="Manuscript: Certifying Model Upgrades with Slice-Wise Non-Regression and Incumbent Fallback">Manuscript</a><a class="ext" href="https://github.com/Bubu631/base-model-upgrade-non-regression" target="_blank" rel="noopener noreferrer" aria-label="Repository: Certifying Model Upgrades with Slice-Wise Non-Regression and Incumbent Fallback">Repository</a></p>
+    </div>
+    <figure><img src="/assets/img/research-model-upgrade.webp" width="1200" height="434" loading="lazy" alt="Two panels plotting probability of release against number of slices for five release gates, with one harmful slice and with all slices safe."><figcaption>Probability of release by gate as the number of slices grows.</figcaption></figure>
+   </article>
+
+   <article class="paper" id="edit-localization-selection-bias">
+    <div>
+     <h3>When Edit Localization Amplifies Relative Selection Bias: Gradient Geometry, Target Mismatch, and Importance Weighting</h3>
+     <p class="authors">Shengwei Zhang, Haoda Dai, Yifei Li, Yuheng Song</p>
+     <p class="summary">Investigates how learning from selectively observed human corrections changes gradient bias and the training target. Combines mathematical analysis, importance weighting, Monte Carlo experiments and fixed-checkpoint diagnostics on public translation post-edits with pretrained models.</p>
+     <ul class="chips"><li class="chip">Python</li><li class="chip">PyTorch</li><li class="chip">Hugging Face Transformers</li><li class="chip">NumPy</li></ul>
+     <p class="link-row"><a class="ext" href="https://github.com/Bubu631/edit-localization-selection-bias/blob/main/papers/edit_localization/main.pdf" target="_blank" rel="noopener noreferrer" aria-label="Manuscript: When Edit Localization Amplifies Relative Selection Bias">Manuscript</a><a class="ext" href="https://github.com/Bubu631/edit-localization-selection-bias" target="_blank" rel="noopener noreferrer" aria-label="Repository: When Edit Localization Amplifies Relative Selection Bias">Repository</a></p>
+    </div>
+    <figure><img src="/assets/img/research-edit-localization.webp" width="1200" height="354" loading="lazy" alt="Three panels plotting relative and absolute gradient bias against untouched retention alpha in three regimes."><figcaption>Relative and absolute gradient bias against untouched retention in three regimes.</figcaption></figure>
+   </article>
+
+   <article class="paper" id="nhs-wellbeing-measurement">
+    <div>
+     <h3>Which Uncertainty Is Worth Reducing? Budgeted Measurement for Wellbeing Prioritisation</h3>
+     <p class="authors">Shengwei Zhang</p>
+     <p class="summary">Studies which additional measurements are worth acquiring before prioritising units for wellbeing review. Evaluates budget allocation across two measurement channels with controlled simulations, a public BRFSS replay and an NHS staff survey illustration.</p>
+     <ul class="chips"><li class="chip">Python</li><li class="chip">pandas</li><li class="chip">SciPy</li><li class="chip">Matplotlib</li></ul>
+     <p class="link-row"><a class="ext" href="https://github.com/Bubu631/nhs-wellbeing-measurement/blob/main/paper/full.pdf" target="_blank" rel="noopener noreferrer" aria-label="Manuscript: Which Uncertainty Is Worth Reducing?">Manuscript</a><a class="ext" href="https://github.com/Bubu631/nhs-wellbeing-measurement" target="_blank" rel="noopener noreferrer" aria-label="Repository: Which Uncertainty Is Worth Reducing?">Repository</a></p>
+    </div>
+    <figure><img src="/assets/img/research-wellbeing-measurement.webp" width="1200" height="432" loading="lazy" alt="Interval plot of regret for two-channel knowledge gradient minus ordinary knowledge gradient across five replay scenarios."><figcaption>Regret of two-channel against ordinary knowledge gradient across replay scenarios.</figcaption></figure>
+   </article>
+
+   <article class="paper" id="agent-audit-complexity">
+    <div>
+     <h3>The Audit Complexity of Group-Relative Policy Updates</h3>
+     <p class="authors">Shengwei Zhang</p>
+     <p class="summary">Studies how many reference labels are needed to recover a fixed group-relative policy update. Includes query-complexity theory, randomized estimators, controlled simulations, small-policy training and frozen-model diagnostics on historical software-agent trajectories.</p>
+     <ul class="chips"><li class="chip">Python</li><li class="chip">NumPy</li><li class="chip">SciPy</li><li class="chip">PyTorch</li></ul>
+     <p class="link-row"><a class="ext" href="https://github.com/Bubu631/agent-audit-complexity/blob/main/paper/main.pdf" target="_blank" rel="noopener noreferrer" aria-label="Manuscript: The Audit Complexity of Group-Relative Policy Updates">Manuscript</a><a class="ext" href="https://github.com/Bubu631/agent-audit-complexity" target="_blank" rel="noopener noreferrer" aria-label="Repository: The Audit Complexity of Group-Relative Policy Updates">Repository</a></p>
+    </div>
+    <figure><img src="/assets/img/research-audit-complexity.webp" width="1200" height="413" loading="lazy" alt="Two panels: exact Boolean query degree rising with group size, and relative high-order energy at a hard cap for three label probabilities."><figcaption>Exact Boolean query degree and approximation error by group size.</figcaption></figure>
+   </article>
+  </div>
+  <p class="after-list"><a class="ext" href="https://github.com/Bubu631/research" target="_blank" rel="noopener noreferrer">Research index</a> lists all four repositories and their release materials.</p>
+ </div>
+</section>
+
+<section class="section alt" id="about" aria-labelledby="about-heading">
+ <div class="wrap">
+  <div class="about-top">
+   <div class="about-head">
+    <p class="eyebrow">About</p>
+    <h2 id="about-heading">A little about me</h2>
+   </div>
+   <div class="about-copy">
+    <p>I'm Shengwei, and I also go by Jacob. I'm based in Philadelphia, studying for an MSE in Systems Engineering at the University of Pennsylvania. Before Penn I spent three years in London, reading Statistics, Economics and Finance at University College London.</p>
+    <p>Along the way I have worked on machine learning and software teams at Alibaba International Digital Commerce Group, Zilliz, Finzcard and NeuralSeek. The projects on this site are separate from those roles: they are the work I can show in full, with source code and recorded results.</p>
+    <p>Away from work I climb, ski and learn languages. I speak five, Chinese, English, Spanish, Japanese and French, and French is the one I'm still working on. I also advise students who are applying to study abroad.</p>
+   </div>
+  </div>
+
+  <div class="about-more">
+   <div>
+    <h3>Path so far</h3>
+    <ol class="timeline">
+     <li><span class="when">2025 &ndash; 2027</span><div><strong>University of Pennsylvania</strong><span>MSE in Systems Engineering &middot; Philadelphia, PA</span></div></li>
+     <li><span class="when">2026</span><div><strong>Alibaba International Digital Commerce Group</strong><span>Machine Learning Intern, Foundation Models &middot; Hangzhou</span></div></li>
+     <li><span class="when">2026</span><div><strong>Finzcard</strong><span>Software Engineer &middot; New York, NY</span></div></li>
+     <li><span class="when">2026</span><div><strong>NeuralSeek</strong><span>Applied AI Engineer Intern &middot; Miami, FL</span></div></li>
+     <li><span class="when">2025</span><div><strong>Zilliz</strong><span>Machine Learning Intern &middot; Redwood City, CA</span></div></li>
+     <li><span class="when">2022 &ndash; 2025</span><div><strong>University College London</strong><span>BSc Statistics, Economics and Finance &middot; London</span></div></li>
+    </ol>
+   </div>
+   <div>
+    <h3>Outside work</h3>
+    <ul class="facts">
+     <li><strong>Languages</strong><span>Chinese (native), English, Spanish (DELE C1), Japanese (JLPT N3), and French in progress.</span></li>
+     <li><strong>Climbing and skiing</strong><span>Rock climbing, and alpine skiing on two skis.</span></li>
+     <li><strong>Study-abroad advising</strong><span>Helping students who are applying to universities abroad.</span></li>
+    </ul>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section" aria-labelledby="more-heading">
+ <div class="wrap">
+  <div class="more">
+   <div>
+    <h2 id="more-heading">More projects</h2>
+    <p>Amap POI Agent, HPAC Rowpack, four applied machine learning studies and two small utilities, each under its own name with source links.</p>
+   </div>
+   <a class="btn btn-secondary" href="/projects/">Browse all projects</a>
+  </div>
+ </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+ <div class="wrap">
+  <div>
+   <p class="sign">Shengwei <em>(Jacob)</em> Zhang</p>
+   <p class="note">Project information checked November 2026</p>
+  </div>
+  <ul>
+   <li><a href="https://github.com/Bubu631" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+   <li><a href="/projects/">All projects</a></li>
+   <li><a href="https://github.com/Bubu631/research" target="_blank" rel="noopener noreferrer">Research index</a></li>
+   <li><a href="/Shengwei_Zhang_GitHub_Portfolio.pdf">Portfolio PDF</a></li>
+  </ul>
+ </div>
+</footer>
+
 </body>
 </html>
